@@ -2,6 +2,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+img {
+  vertical-align: middle;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,69 +15,97 @@ body {
 /* navbar */
 #navbar {
   position: fixed;
-  top: 0;
   width: 100%;
+  top: 0;
   z-index: 1;
-  background-color: #fff;
 }
 
 nav {
-  position: relative;
-  height: 88px;
-  align-content: center;
-  margin: 0 80px;
+  display: flex;
+  padding: 40px 80px;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav > div {
-  display: inline-block;
+nav > div:nth-child(2) {
+  display: flex;
+  gap: 24px;
+  align-items: center;
 }
 
-.right-nav > div {
-  display: inline-block;
-  margin: 0 10px;
+nav > div:nth-child(2) > div {
+  display: flex;
+  gap: 14px;
+  align-items: center;
 }
 
-.right-nav > div:not(:nth-child(2)) {
-  position: relative;
-  top: -10px;
+.photo-profile-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 6px;
+  border: 1px solid #ccced2;
 }
 
-.right-nav > div:nth-child(3) {
-  top: -15px;
+.photo-profile {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-image: url("../img/photo-profile.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.right-nav {
-  position: absolute;
-  align-content: center;
-  top: 0;
-  right: 0;
-  height: 88px;
+nav > img,
+nav > div:nth-child(2) > img,
+nav > div:nth-child(2) > div > * {
+  cursor: pointer;
+}
+
+nav > div:nth-child(2) img {
+  transition: transform 0.5s ease;
+}
+
+nav > div:nth-child(2) input {
+  display: none;
+}
+
+nav > div:nth-child(2) input:checked + img {
+  transform: rotate(180deg);
 }
 
 /* main */
 main {
-  margin-top: 128px;
+  margin-top: 150px;
   justify-items: center;
 }
 
 /* content */
-#content {
-  position: relative;
+#content-container {
   width: 800px;
-  min-height: 760px;
+  min-height: 672px;
   padding: 40px;
   margin-bottom: 40px;
   box-shadow: 0px 16px 90px 0px rgba(19, 7, 52, 0.08);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 /* content-header */
-#content > header {
-  position: relative;
-  height: auto;
-}
-
-#content > header > div {
-  display: inline-block;
+.content > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .text-header > div:nth-child(1) {
@@ -94,14 +126,9 @@ main {
   color: #7a7f83;
 }
 
-#content > header > div:nth-child(2) {
-  position: absolute;
-  height: 84.4px;
-  right: 0;
-  align-content: center;
-}
-
-#content > header button {
+.content > header button {
+  display: flex;
+  gap: 8px;
   height: 48px;
   border-radius: 60px;
   padding: 12px 15px;
@@ -112,39 +139,24 @@ main {
   border: 0;
 }
 
-#content > header button > span {
-  position: relative;
-  top: -6px;
-  margin-left: 10px;
-}
-
 /* content-sorting */
-.todo-list {
-  margin-top: 16px;
-}
-
 .sorting {
-  position: relative;
-  height: 44px;
-  align-content: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.sorting > div {
-  display: inline-block;
-}
-
-.sorting > div:nth-child(1) {
+.sorting > div:first-child {
   font-size: 16px;
   font-weight: 500;
   color: #7a7f83;
 }
 
 .sorting > div:nth-child(2) {
-  position: absolute;
-  right: 0;
-  top: 0;
+  display: flex;
+  gap: 4px;
+  align-items: center;
   padding: 10px 14px;
-  height: 24px;
   color: #ff5f26;
   border: 1px solid #ff5f26;
   border-radius: 50px;
@@ -152,64 +164,52 @@ main {
   font-size: 14px;
 }
 
-.sorting span {
-  position: relative;
-  top: -8px;
-}
-
 /* content-items-list */
 .items-list {
-  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .item-wrap {
-  position: relative;
-  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.item-wrap > div {
-  display: inline-block;
+.checkbox-item {
+  display: flex;
+  gap: 14px;
 }
 
-.item-wrap > div:nth-child(2) {
-  position: absolute;
-  right: 0;
-}
-
-.checkbox input {
+.checkbox-item > label > input {
   display: none;
 }
 
-.checkbox label {
-  display: inline-block;
-}
-.checkbox label > span {
-  display: inline-block;
+.checkbox-item label > div {
   width: 28px;
   height: 28px;
   border-radius: 100px;
   border: 1px solid #ccced2;
 }
 
-.checkbox input:checked + span {
+.checkbox-item input:checked + div {
   background-color: #ff5f26;
   background-image: url(../img/check.png);
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.checkbox > span {
-  position: relative;
-  top: -7px;
-  margin-left: 14px;
+.checkbox-item > div > div:first-child {
+  display: flex;
+  gap: 16px;
 }
 
-.checkbox > span > label {
+.checkbox-item > div > div > label {
   font-weight: 500;
   font-size: 18px;
 }
 
-.checkbox > span > span {
+.checkbox-item > div > div > span {
   font-weight: 500;
   font-size: 12px;
   color: #ff5f26;
@@ -218,38 +218,37 @@ main {
   border-radius: 50px;
 }
 
-.checkbox > div {
+.checkbox-item > div > div:nth-child(2) {
   font-weight: 400;
   font-size: 14px;
   color: #7a7f83;
-  margin-left: 48px;
 }
 
 /* content-footer */
-
-#content > footer {
-  width: calc(100% - 80px);
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 40px;
+#completed-task {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-#completed-task > hr {
-  margin-bottom: 24px;
+hr {
+  flex-shrink: 0;
+  width: 100%;
 }
 
 #completed-task > label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
 }
 
 #completed-task > label > img {
   transform: rotate(-90deg);
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
 #completed-task > label > span {
-  position: relative;
-  top: -4px;
   font-weight: 500;
   font-size: 18px;
   color: #7a7f83;
@@ -261,13 +260,18 @@ main {
 
 .list-completed-task {
   display: none;
-  margin-top: 24px;
 }
 
-#show-complete-task:checked ~ label img {
+#check-complete-task:checked ~ label img {
   transform: rotate(0deg);
 }
 
-#show-complete-task:checked ~ .list-completed-task {
-  display: block;
+#check-complete-task:checked ~ .list-completed-task {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list-completed-task > .item-wrap > .checkbox-item > div:nth-child(2) label {
+  text-decoration: line-through;
 }

@@ -3,129 +3,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do List</title>
+    <title>Wazwez.</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <header>
       <section id="navbar">
         <nav>
+          <img src="./assets/img/Logo.svg" alt="Logo Wazwez" />
           <div>
-            <img src="./assets/img/Logo.svg" alt="" />
-          </div>
-          <div class="right-nav">
+            <img src="./assets/img/Notification.svg" alt="Icon Notification" />
             <div>
-              <img src="./assets/img/Notification.svg" alt="" />
-            </div>
-            <div class="photo-profile">
-              <img src="./assets/img/photo-profile.png" alt="" />
-            </div>
-            <div>Krozeo Jupyter</div>
-            <div>
-              <img src="./assets/img/Arrow-down-black.svg" alt="" />
+              <div class="photo-profile-wrap">
+                <div class="photo-profile"></div>
+              </div>
+              <div>Krozeo Jupyter</div>
+              <label>
+                <input type="checkbox" name="dropdown-nav" />
+                <img src="./assets/img/Arrow-down-black.svg" alt="Dropdown Profile" />
+              </label>
             </div>
           </div>
         </nav>
       </section>
     </header>
     <main>
-      <section id="content">
-        <header>
-          <div class="text-header">
-            <div>MY TASK</div>
-            <div>to do list</div>
-            <div>Buat list tugas harian saya</div>
-          </div>
-          <div>
-            <button><img src="./assets/img/Plus.svg" alt="" /><span>Tambah tugas</span></button>
-          </div>
-        </header>
-        <div class="todo-list">
+      <section id="content-container">
+        <div class="content">
+          <header>
+            <div class="text-header">
+              <div>MY TASK</div>
+              <div>to do list</div>
+              <div>Buat list tugas harian saya</div>
+            </div>
+            <button><img src="./assets/img/Plus.svg" alt="Button Add Task" /><span> Tambah tugas</span></button>
+          </header>
           <div class="sorting">
             <div>Sort By</div>
-            <div><span>By Tanggal</span><img src="./assets/img/Arrow-down.svg" alt="" /></div>
+            <div><span>By Tanggal</span><img src="./assets/img/Arrow-down.svg" alt="Sorting Task" /></div>
           </div>
           <div class="items-list">
             <div class="item-wrap">
-              <div class="checkbox">
-                <label
-                  ><input id="check-1" type="checkbox" />
-                  <span></span>
+              <div class="checkbox-item">
+                <label>
+                  <input id="check-1" type="checkbox" />
+                  <div></div>
                 </label>
-                <span>
-                  <label for="check-1">Product Design</label>
-                  <span>Hari ini</span>
-                </span>
-                <div>Tugas untuk design team</div>
+                <div>
+                  <div>
+                    <label for="check-1">Product Design</label>
+                    <span>Hari ini</span>
+                  </div>
+                  <div>Tugas untuk design team</div>
+                </div>
               </div>
-              <div><img src="./assets/img/Arrow-down-black.svg" alt="" /></div>
+              <div><img src="./assets/img/Arrow-down-black.svg" alt="Dropdown To Do List" /></div>
             </div>
             <div class="item-wrap">
-              <div class="checkbox">
-                <label
-                  ><input id="check-2" type="checkbox" />
-                  <span></span>
+              <div class="checkbox-item">
+                <label>
+                  <input id="check-2" type="checkbox" />
+                  <div></div>
                 </label>
-                <span>
-                  <label for="check-2">Development</label>
-                  <span>15 Juni 2022</span>
-                </span>
-                <!-- <div>Tugas untuk design team</div> -->
+                <div>
+                  <div>
+                    <label for="check-2">Development</label>
+                    <span>15 Juni 2022</span>
+                  </div>
+                  <div></div>
+                </div>
               </div>
-              <div><img src="./assets/img/Arrow-down-black.svg" alt="" /></div>
+              <div><img src="./assets/img/Arrow-down-black.svg" alt="Dropdown To Do List" /></div>
             </div>
             <div class="item-wrap">
-              <div class="checkbox">
-                <label
-                  ><input id="check-3" type="checkbox" />
-                  <span></span>
+              <div class="checkbox-item">
+                <label>
+                  <input id="check-3" type="checkbox" />
+                  <div></div>
                 </label>
-                <span>
-                  <label for="check-3">Launching Wazwez Website</label>
-                  <span>20 Juni 2022</span>
-                </span>
-                <!-- <div>Tugas untuk design team</div> -->
+                <div>
+                  <div>
+                    <label for="check-3">Launching Wazwez Website</label>
+                    <span>20 Juni 2022</span>
+                  </div>
+                  <div></div>
+                </div>
               </div>
-              <div><img src="./assets/img/Arrow-down-black.svg" alt="" /></div>
+              <div><img src="./assets/img/Arrow-down-black.svg" alt="Dropdown To Do List" /></div>
             </div>
           </div>
         </div>
         <footer>
           <section id="completed-task">
             <hr />
-            <input type="checkbox" name="show-complete-task" id="show-complete-task" />
-            <label for="show-complete-task">
-              <img src="./assets/img/Arrow-down-black.svg" alt="" />
+            <input type="checkbox" name="check-complete-task" id="check-complete-task" />
+            <label for="check-complete-task">
+              <img src="./assets/img/Arrow-down-black.svg" alt="Dropdown Complete Task" />
               <span>Terselesaikan (3 Tugas)</span>
             </label>
             <div class="list-completed-task">
               <div class="item-wrap">
-                <div class="checkbox">
-                  <label
-                    ><input id="completed-1" type="checkbox" />
-                    <span></span>
+                <div class="checkbox-item">
+                  <label>
+                    <input id="completed-1" type="checkbox" />
+                    <div></div>
                   </label>
-                  <span>
-                    <label for="completed-1">Product Design</label>
-                    <!-- <span>Hari ini</span> -->
-                  </span>
-                  <div></div>
+                  <div>
+                    <div>
+                      <label for="completed-1">Requierments Details</label>
+                      <!-- <span>Hari ini</span> -->
+                    </div>
+                    <!-- <div>Tugas untuk design team</div> -->
+                  </div>
                 </div>
-                <div><img src="./assets/img/Arrow-down-black.svg" alt="" /></div>
+                <div><img src="./assets/img/Arrow-down-black.svg" alt="Dropdown To Do List" /></div>
               </div>
               <div class="item-wrap">
-                <div class="checkbox">
-                  <label
-                    ><input id="completed-2" type="checkbox" />
-                    <span></span>
+                <div class="checkbox-item">
+                  <label>
+                    <input id="completed-2" type="checkbox" />
+                    <div></div>
                   </label>
-                  <span>
-                    <label for="completed-2">Product Design</label>
-                    <!-- <span>Hari ini</span> -->
-                  </span>
-                  <div></div>
+                  <div>
+                    <div>
+                      <label for="completed-2">Backlog Teams</label>
+                      <!-- <span>Hari ini</span> -->
+                    </div>
+                    <!-- <div>Tugas untuk design team</div> -->
+                  </div>
                 </div>
-                <div><img src="./assets/img/Arrow-down-black.svg" alt="" /></div>
+                <div><img src="./assets/img/Arrow-down-black.svg" alt="Dropdown To Do List" /></div>
+              </div>
+              <div class="item-wrap">
+                <div class="checkbox-item">
+                  <label>
+                    <input id="completed-3" type="checkbox" />
+                    <div></div>
+                  </label>
+                  <div>
+                    <div>
+                      <label for="completed-3">Meeting With Teams</label>
+                      <!-- <span>Hari ini</span> -->
+                    </div>
+                    <!-- <div>Tugas untuk design team</div> -->
+                  </div>
+                </div>
+                <div><img src="./assets/img/Arrow-down-black.svg" alt="Dropdown To Do List" /></div>
               </div>
             </div>
           </section>
