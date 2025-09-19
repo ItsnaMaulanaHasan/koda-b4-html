@@ -226,24 +226,25 @@ main {
 }
 
 /* content-footer */
+
 #content > footer {
-  /* display: inline-block; */
   width: calc(100% - 80px);
   position: absolute;
   bottom: 0;
   margin-bottom: 24px;
 }
 
-#content > footer > div {
+#completed-task > header {
   margin-top: 24px;
 }
 
-#content > footer > div > span {
-  position: relative;
-  top: -4px;
+#completed-task > header > img {
+  transform: rotate(-90deg);
 }
 
-#content > footer span {
+#completed-task > header > span {
+  position: relative;
+  top: -4px;
   font-weight: 500;
   font-size: 18px;
   color: #7a7f83;
