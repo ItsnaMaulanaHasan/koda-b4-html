@@ -1,0 +1,54 @@
+.custom-icon {
+  width: 24px;
+  height: 24px;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  display: inline-block;
+}
+
+.custom-icon2 {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  display: inline-block;
+}
+
+.icon-dropdown {
+  background-color: #293038;
+  mask-image: url("../icon/icon-dropdown.svg");
+}
+
+.icon-notif {
+  background-color: #9e9e9e;
+  mask-image: url("../icon/icon-notif.svg");
+}
+
+.icon-add {
+  background-color: #ffffff;
+  mask-image: url("../icon/icon-add.svg");
+}
+
+.icon-add-filled {
+  background: url("../icon/icon-add-filled.svg") no-repeat center center;
+}
+
+.icon-trash {
+  background-color: #ccced2;
+  mask-image: url("../icon/icon-trash.svg");
+}
+
+.icon-kebab {
+  background-color: #ccced2;
+  mask-image: url("../icon/icon-kebab.svg");
+}
+
+.icon-edit {
+  background-color: #293038;
+  mask-image: url("../icon/icon-edit.svg");
+}
+
+.icon-delete {
+  background-color: #293038;
+  mask-image: url("../icon/icon-delete.svg");
+}
