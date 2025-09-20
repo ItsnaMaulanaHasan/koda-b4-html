@@ -45,6 +45,11 @@ nav > div:nth-child(2) > div {
   align-items: center;
 }
 
+nav > div:nth-child(2) > div > label {
+  display: flex;
+  align-items: center;
+}
+
 .photo-profile-wrap {
   width: 36px;
   height: 36px;
@@ -65,11 +70,11 @@ nav > div:nth-child(2) > div {
 
 nav > img,
 nav > div:nth-child(2) > img,
-nav > div:nth-child(2) > div > * {
+nav > div:nth-child(2) > * {
   cursor: pointer;
 }
 
-nav > div:nth-child(2) svg {
+nav > div:nth-child(2) > div .icon-dropdown {
   transition: transform 0.5s ease;
 }
 
@@ -77,12 +82,9 @@ nav > div:nth-child(2) input {
   display: none;
 }
 
-nav > div:nth-child(2) input:checked + svg {
+nav > div:nth-child(2) input:checked + .icon-dropdown {
   transform: rotate(180deg);
-}
-
-nav > div:nth-child(2) input:checked + svg > path {
-  fill: #ccced2;
+  background-color: #ccced2;
 }
 
 /* main */
@@ -109,6 +111,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-bottom: 28px;
 }
 
 /* content-header */
@@ -138,8 +141,8 @@ main {
 
 .content > header button {
   display: flex;
+  align-items: center;
   gap: 8px;
-  height: 48px;
   border-radius: 60px;
   padding: 12px 15px;
   background-color: #ff5f26;
@@ -147,6 +150,7 @@ main {
   font-weight: 600;
   color: #fff;
   border: 0;
+  cursor: pointer;
 }
 
 /* content-sorting */
@@ -156,7 +160,7 @@ main {
   align-items: center;
 }
 
-.sorting > div {
+.sorting > span {
   font-size: 16px;
   font-weight: 500;
   color: #7a7f83;
@@ -167,13 +171,20 @@ main {
 }
 
 .option-sort-wrapper > label > div {
+  display: flex;
+  align-items: center;
   padding: 10px 14px;
   color: #ff5f26;
+  background-color: #fff;
   border: 1px solid #ff5f26;
   border-radius: 50px;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
+}
+
+.option-sort-wrapper > label > div > .icon-dropdown {
+  background-color: #ff5f26;
 }
 
 .sorting > input {
@@ -184,7 +195,7 @@ main {
   display: none;
 }
 
-.option-sort-wrapper > label > div > svg {
+.option-sort-wrapper > label > div > .icon-dropdown {
   transition: transform 0.3s ease;
 }
 
@@ -193,12 +204,12 @@ main {
   border-color: #ccced2;
 }
 
-.sorting > input:checked ~ .option-sort-wrapper > label > div > svg {
+.sorting > input:checked ~ .option-sort-wrapper > label > div > .icon-dropdown {
   transform: rotate(180deg);
 }
 
-.sorting > input:checked ~ .option-sort-wrapper > label > div > svg > path {
-  fill: #ccced2;
+.sorting > input:checked ~ .option-sort-wrapper > label > div > .icon-dropdown {
+  background-color: #ccced2;
 }
 
 .sorting > input:checked ~ .option-sort-wrapper > .option-sort {
@@ -238,7 +249,27 @@ main {
 
 .item-wrap {
   display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item-wrap > input {
+  display: none;
+}
+
+.item-title {
+  display: flex;
   justify-content: space-between;
+}
+
+.item-title > label > .icon-dropdown {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.item-wrap > input:checked ~ .item-title > label > .icon-dropdown {
+  transform: rotate(180deg);
+  background-color: #ccced2;
 }
 
 .checkbox-item {
@@ -267,6 +298,9 @@ main {
 .checkbox-item > div > div:first-child {
   display: flex;
   gap: 16px;
+  align-items: center;
+  color: #293038;
+  position: relative;
 }
 
 .checkbox-item > div > div > label {
@@ -283,10 +317,141 @@ main {
   border-radius: 50px;
 }
 
+.checkbox-item > div > div > input {
+  display: none;
+}
+
+.checkbox-item > div > div > label:nth-child(4) {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  display: none;
+}
+
+.checkbox-item > div > div > input:checked ~ .action-btn {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #ffffff;
+  gap: 12px;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #ccced2;
+  right: -160px;
+  bottom: -130px;
+}
+
+.action-btn > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
 .checkbox-item > div > div:nth-child(2) {
   font-weight: 400;
   font-size: 14px;
   color: #7a7f83;
+}
+
+.checkbox-item > div > div > label > .icon-kebab {
+  display: none;
+  cursor: pointer;
+}
+
+.item-wrap > input:checked ~ .item-title > .checkbox-item > div > div > label > .icon-kebab {
+  display: inline-block;
+}
+
+.item-subtask {
+  display: none;
+}
+
+.item-wrap > input:checked ~ .item-subtask {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.header-subtask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-subtask > span {
+  font-weight: 500;
+  font-size: 16px;
+  color: #293038;
+}
+
+.header-subtask > button {
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #ccced2;
+  border-radius: 50px;
+  color: #ff5f26;
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.list-subtask {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subtask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-item-subtask > label > span {
+  font-weight: 400;
+  font-size: 16px;
+  color: #293038;
+}
+
+.subtask > .icon-trash {
+  width: 18px;
+  cursor: pointer;
+}
+
+.checkbox-item-subtask > label {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.checkbox-item-subtask > input {
+  display: none;
+}
+
+.checkbox-item-subtask > label > div {
+  width: 28px;
+  height: 28px;
+  border-radius: 100px;
+  border: 1px solid #ccced2;
+}
+
+.checkbox-item-subtask > input:checked ~ label > div {
+  background-color: #ff5f26;
+  background-image: url(../img/check.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checkbox-item-subtask > input:checked ~ label > span {
+  text-decoration: line-through;
 }
 
 /* content-footer */
@@ -308,7 +473,8 @@ hr {
   cursor: pointer;
 }
 
-#completed-task > label > svg {
+#completed-task > label > .icon-dropdown {
+  transform: rotate(-90deg);
   transition: transform 0.3s ease;
 }
 
@@ -326,12 +492,9 @@ hr {
   display: none;
 }
 
-#check-complete-task:checked ~ label > svg {
-  transform: rotate(-90deg);
-}
-
-#check-complete-task:checked ~ label > svg > path {
-  fill: #ccced2;
+#check-complete-task:checked ~ label > .icon-dropdown {
+  transform: rotate(-180deg);
+  background-color: #ccced2;
 }
 
 #check-complete-task:checked ~ .list-completed-task {
@@ -340,6 +503,39 @@ hr {
   gap: 16px;
 }
 
-.list-completed-task > .item-wrap > .checkbox-item > div label {
+.list-completed-task > .item-wrap > .item-title .checkbox-item-complete > div > label {
+  text-decoration: line-through;
+}
+
+.checkbox-item-complete > label {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.checkbox-item-complete > input {
+  display: none;
+}
+
+.checkbox-item-complete > label > div {
+  width: 28px;
+  height: 28px;
+  border-radius: 100px;
+  border: 1px solid #ccced2;
+}
+
+.checkbox-item-complete > label > span {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.checkbox-item-complete > input:checked ~ label > div {
+  background-color: #ff5f26;
+  background-image: url(../img/check.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checkbox-item-complete > input:checked ~ label > span {
   text-decoration: line-through;
 }
