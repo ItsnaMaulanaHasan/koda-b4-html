@@ -52,3 +52,13 @@
   background-color: #293038;
   mask-image: url("../icon/icon-delete.svg");
 }
+
+.icon-description {
+  background-color: #293038;
+  mask-image: url("../icon/icon-description.svg");
+}
+
+.icon-calender {
+  background-color: #293038;
+  mask-image: url("../icon/icon-calender.svg");
+}

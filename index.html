@@ -10,6 +10,7 @@
   <body>
     <header>
       <section id="navbar">
+        <!-- navbar -->
         <nav>
           <img src="./assets/img/Logo.svg" alt="Logo Wazwez" />
           <div>
@@ -32,16 +33,17 @@
       <section id="content-container">
         <div class="content">
           <!-- content header -->
+          <input type="checkbox" name="add-items" id="add-items" />
           <header>
             <div class="text-header">
-              <div>MY TASK</div>
-              <div>to do list</div>
+              <div>MY TASKS</div>
+              <div>To do list</div>
               <div>Buat list tugas harian saya</div>
             </div>
-            <button><i class="custom-icon icon-add"></i>Tambah tugas</button>
+            <label for="add-items"><i class="custom-icon icon-add"></i>Tambah tugas</label>
           </header>
           <!-- content sorting -->
-          <div class="sorting">  
+          <div class="sorting">
             <span>Sort By</span>
             <input type="checkbox" name="sort-item" id="sort-item" />
             <div class="option-sort-wrapper">
@@ -69,6 +71,28 @@
           </div>
           <!-- items list -->
           <div class="items-list">
+            <div class="item-add">
+              <div></div>
+              <div>
+                <div class="input-name">
+                  <label for="name-item">
+                    <input type="text" placeholder="Masukkan nama tugas" />
+                  </label>
+                </div>
+                <div class="input-description">
+                  <i class="custom-icon icon-description"></i>
+                  <label for="description-item">
+                    <input type="text" placeholder="Deskripsi Tugas (Optional)" />
+                  </label>
+                </div>
+                <div class="input-date">
+                  <i class="custom-icon icon-calender"></i>
+                  <label for="date-item">
+                    <input type="text" placeholder="Tanggal & Waktu" />
+                  </label>
+                </div>
+              </div>
+            </div>
             <div class="item-wrap">
               <input type="checkbox" name="dropdown-subtask" id="dropdown-subtask-1" />
               <div class="item-title">
@@ -100,6 +124,7 @@
                   <i class="custom-icon icon-dropdown"></i>
                 </label>
               </div>
+              <!-- subtask -->
               <div class="item-subtask">
                 <div class="header-subtask">
                   <span>Subtask</span>
@@ -218,6 +243,7 @@
             </div>
           </div>
         </div>
+        <!-- completed task -->
         <footer>
           <section id="completed-task">
             <hr />
