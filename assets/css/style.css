@@ -6,10 +6,15 @@ img {
   vertical-align: middle;
 }
 
+.fa {
+  line-height: 0px;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #f5f5f5;
 }
 
 /* navbar */
@@ -17,13 +22,13 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 2;
+  background-color: #f5f5f5;
 }
 
 nav {
   display: flex;
   padding: 40px 80px;
-  background-color: #fff;
   justify-content: space-between;
   align-items: center;
 }
@@ -64,7 +69,7 @@ nav > div:nth-child(2) > div > * {
   cursor: pointer;
 }
 
-nav > div:nth-child(2) img {
+nav > div:nth-child(2) svg {
   transition: transform 0.5s ease;
 }
 
@@ -72,8 +77,12 @@ nav > div:nth-child(2) input {
   display: none;
 }
 
-nav > div:nth-child(2) input:checked + img {
+nav > div:nth-child(2) input:checked + svg {
   transform: rotate(180deg);
+}
+
+nav > div:nth-child(2) input:checked + svg > path {
+  fill: #ccced2;
 }
 
 /* main */
@@ -93,6 +102,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #fff;
 }
 
 .content {
@@ -146,22 +156,77 @@ main {
   align-items: center;
 }
 
-.sorting > div:first-child {
+.sorting > div {
   font-size: 16px;
   font-weight: 500;
   color: #7a7f83;
 }
 
-.sorting > div:nth-child(2) {
-  display: flex;
-  gap: 4px;
-  align-items: center;
+.option-sort-wrapper {
+  position: relative;
+}
+
+.option-sort-wrapper > label > div {
   padding: 10px 14px;
   color: #ff5f26;
   border: 1px solid #ff5f26;
   border-radius: 50px;
   font-weight: 600;
   font-size: 14px;
+  cursor: pointer;
+}
+
+.sorting > input {
+  display: none;
+}
+
+.option-sort {
+  display: none;
+}
+
+.option-sort-wrapper > label > div > svg {
+  transition: transform 0.3s ease;
+}
+
+.sorting > input:checked ~ .option-sort-wrapper > label > div {
+  color: #7a7f83;
+  border-color: #ccced2;
+}
+
+.sorting > input:checked ~ .option-sort-wrapper > label > div > svg {
+  transform: rotate(180deg);
+}
+
+.sorting > input:checked ~ .option-sort-wrapper > label > div > svg > path {
+  fill: #ccced2;
+}
+
+.sorting > input:checked ~ .option-sort-wrapper > .option-sort {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #ccced2;
+  border-radius: 8px;
+  padding: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  background-color: #fff;
+  top: 62px;
+  width: 200px;
+  right: 0;
+}
+
+.option-sort > label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.option-sort > label > input {
+  accent-color: #ff5f26;
+  width: 20px;
 }
 
 /* content-items-list */
@@ -243,8 +308,7 @@ hr {
   cursor: pointer;
 }
 
-#completed-task > label > img {
-  transform: rotate(-90deg);
+#completed-task > label > svg {
   transition: transform 0.3s ease;
 }
 
@@ -262,8 +326,12 @@ hr {
   display: none;
 }
 
-#check-complete-task:checked ~ label img {
-  transform: rotate(0deg);
+#check-complete-task:checked ~ label > svg {
+  transform: rotate(-90deg);
+}
+
+#check-complete-task:checked ~ label > svg > path {
+  fill: #ccced2;
 }
 
 #check-complete-task:checked ~ .list-completed-task {
@@ -272,6 +340,6 @@ hr {
   gap: 16px;
 }
 
-.list-completed-task > .item-wrap > .checkbox-item > div:nth-child(2) label {
+.list-completed-task > .item-wrap > .checkbox-item > div label {
   text-decoration: line-through;
 }
