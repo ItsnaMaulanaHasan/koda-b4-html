@@ -6,11 +6,15 @@
     <title>Wazwez.</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/custom.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/content.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
   </head>
   <body>
     <header>
       <section id="navbar">
         <!-- navbar -->
+        <input type="checkbox" name="sidenav" id="hambuger-menu" />
         <nav>
           <img src="./assets/img/Logo.svg" alt="Logo Wazwez" />
           <div>
@@ -26,7 +30,14 @@
               </label>
             </div>
           </div>
+          <label for="hambuger-menu">
+            <i class="custom-icon icon-hamburger-menu"></i>
+          </label>
         </nav>
+        <div class="nav-mobile">
+          <a href="#">Notification</a>
+          <a href="#">Profile</a>
+        </div>
       </section>
     </header>
     <main>
