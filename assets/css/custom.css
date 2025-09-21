@@ -62,3 +62,13 @@
   background-color: #293038;
   mask-image: url("../icon/icon-calender.svg");
 }
+
+.icon-hamburger-menu {
+  background-color: #ff5f26;
+  mask-image: url("../icon/icon-hamburger-menu.svg");
+}
+
+.icon-close {
+  background-color: #ff5f26;
+  mask-image: url("../icon/icon-close.svg");
+}
