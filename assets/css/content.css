@@ -445,6 +445,7 @@
 @media (max-width: 700px) {
   #content-container {
     min-width: auto;
+    min-height: 600px;
   }
 
   .icon-add {
