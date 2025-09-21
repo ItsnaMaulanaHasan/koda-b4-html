@@ -96,7 +96,7 @@ nav > label {
   height: 35px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   #navbar {
     background-color: #fff;
   }
@@ -127,6 +127,6 @@ nav > label {
     background-color: #fff;
     gap: 24px;
     padding: 20px 0;
-    font-size: 18px;
+    font-size: 4.5vw;
   }
 }

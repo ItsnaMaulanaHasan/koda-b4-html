@@ -25,7 +25,7 @@ hr {
 
 #completed-task > label > span {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #7a7f83;
 }
 
@@ -71,7 +71,7 @@ hr {
 
 .checkbox-item-complete > label > span {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .checkbox-item-complete > input:checked ~ label > div {

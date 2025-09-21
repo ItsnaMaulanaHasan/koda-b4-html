@@ -1,8 +1,8 @@
 /* content */
 #content-container {
-  width: 800px;
+  min-width: 800px;
   min-height: 672px;
-  padding: 40px;
+  padding: 2.5rem;
   overflow: hidden;
   margin-bottom: 40px;
   box-shadow: 0px 16px 90px 0px rgba(19, 7, 52, 0.08);
@@ -33,19 +33,19 @@
 }
 
 .text-header > div:nth-child(1) {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   color: #ff5f26;
 }
 
 .text-header > div:nth-child(2) {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #293038;
 }
 
 .text-header > div:nth-child(3) {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   color: #7a7f83;
 }
@@ -55,9 +55,9 @@
   align-items: center;
   gap: 8px;
   border-radius: 60px;
-  padding: 12px 15px;
+  padding: 0.75rem 0.9375rem;
   background-color: #ff5f26;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: #fff;
   border: 0;
@@ -73,7 +73,7 @@
 }
 
 .sorting > span {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   color: #7a7f83;
 }
@@ -85,13 +85,13 @@
 .option-sort-wrapper > label > div {
   display: flex;
   align-items: center;
-  padding: 10px 14px;
+  padding: 0.625rem 0.875rem;
   color: #ff5f26;
   background-color: #fff;
   border: 1px solid #ff5f26;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
 }
 
@@ -132,9 +132,9 @@
   gap: 12px;
   border: 1px solid #ccced2;
   border-radius: 8px;
-  padding: 24px;
+  padding: 1.5rem;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   color: #000;
   background-color: #fff;
   top: 62px;
@@ -208,13 +208,13 @@
 .input-description input,
 .input-date input {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   color: #293038;
 }
 
 .input-name input {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #293038;
 }
 
@@ -223,7 +223,7 @@
   gap: 14px;
   width: calc(100% + 80px);
   margin-left: -40px;
-  padding: 8px 40px;
+  padding: 0.5rem 2.5rem;
   background-color: #f5f5f5;
 }
 
@@ -279,22 +279,22 @@
 
 .checkbox-item > div > div:first-child {
   display: flex;
-  gap: 16px;
   align-items: center;
   color: #293038;
   position: relative;
 }
 
-.checkbox-item > div > div > label {
+.checkbox-item > div > div > label:first-child {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem;
+  margin-right: 1rem;
 }
 
 .checkbox-item > div > div > span {
   font-weight: 500;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #ff5f26;
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   background-color: #ffebd3;
   border-radius: 50px;
 }
@@ -312,19 +312,20 @@
 
 .action-btn {
   display: none;
+  position: absolute;
+  right: -165px;
+  top: 40px;
 }
 
 .checkbox-item > div > div > input:checked ~ .action-btn {
   display: flex;
   flex-direction: column;
-  position: absolute;
   background-color: #ffffff;
   gap: 12px;
-  padding: 24px;
+  z-index: 2;
+  padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid #ccced2;
-  right: -160px;
-  bottom: -130px;
 }
 
 .action-btn > div {
@@ -336,7 +337,7 @@
 
 .checkbox-item > div > div:nth-child(2) {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #7a7f83;
 }
 
@@ -359,7 +360,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px;
+  padding: 1rem;
   background-color: #f5f5f5;
   border-radius: 8px;
 }
@@ -372,12 +373,12 @@
 
 .header-subtask > span {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   color: #293038;
 }
 
 .header-subtask > button {
-  padding: 6px 10px;
+  padding: 0.375rem 0.625rem;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -386,6 +387,7 @@
   color: #ff5f26;
   background-color: #fff;
   cursor: pointer;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
@@ -403,7 +405,7 @@
 
 .checkbox-item-subtask > label > span {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   color: #293038;
 }
 
@@ -438,4 +440,58 @@
 
 .checkbox-item-subtask > input:checked ~ label > span {
   text-decoration: line-through;
+}
+
+@media (max-width: 700px) {
+  #content-container {
+    min-width: auto;
+  }
+
+  .icon-add {
+    width: 20px;
+    height: 20px;
+  }
+
+  .icon-dropdown {
+    height: 20px;
+    width: 20px;
+  }
+
+  .action-btn {
+    right: 0px;
+    top: 50px;
+  }
+
+  .checkbox-item > div > div > label:first-child {
+    display: inline-block;
+    max-width: 10rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 0.5rem;
+  }
+
+  .checkbox-item > div > div > span {
+    display: inline-block;
+    text-align: center;
+    max-width: 3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .item-wrap > input:checked ~ .item-title > .checkbox-item > div > div > label:first-child {
+    white-space: wrap;
+    margin-right: 0.5rem;
+  }
+
+  .item-wrap > input:checked ~ .item-title > .checkbox-item > div > div > span {
+    white-space: wrap;
+  }
+}
+
+@media (max-width: 440px) {
+  .content > header > label > span {
+    display: none;
+  }
 }
