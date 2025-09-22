@@ -15,7 +15,7 @@
 }
 
 .icon-dropdown {
-  background-color: #293038;
+  background-color: var(--text-color);
   mask-image: url("../icon/icon-dropdown.svg");
 }
 
@@ -34,41 +34,41 @@
 }
 
 .icon-trash {
-  background-color: #ccced2;
+  background-color: var(--icon-second-color);
   mask-image: url("../icon/icon-trash.svg");
 }
 
 .icon-kebab {
-  background-color: #ccced2;
+  background-color: var(--icon-second-color);
   mask-image: url("../icon/icon-kebab.svg");
 }
 
 .icon-edit {
-  background-color: #293038;
+  background-color: var(--text-color);
   mask-image: url("../icon/icon-edit.svg");
 }
 
 .icon-delete {
-  background-color: #293038;
+  background-color: var(--text-color);
   mask-image: url("../icon/icon-delete.svg");
 }
 
 .icon-description {
-  background-color: #293038;
+  background-color: var(--text-color);
   mask-image: url("../icon/icon-description.svg");
 }
 
 .icon-calender {
-  background-color: #293038;
+  background-color: var(--text-color);
   mask-image: url("../icon/icon-calender.svg");
 }
 
 .icon-hamburger-menu {
-  background-color: #ff5f26;
+  background-color: var(--primary);
   mask-image: url("../icon/icon-hamburger-menu.svg");
 }
 
 .icon-close {
-  background-color: #ff5f26;
+  background-color: var(--primary);
   mask-image: url("../icon/icon-close.svg");
 }
