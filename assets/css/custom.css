@@ -15,12 +15,12 @@
 }
 
 .icon-dropdown {
-  background-color: var(--text-color);
+  background-color: var(--primary);
   mask-image: url("../icon/icon-dropdown.svg");
 }
 
 .icon-notif {
-  background-color: #9e9e9e;
+  background-color: var(--primary);
   mask-image: url("../icon/icon-notif.svg");
 }
 
@@ -44,12 +44,12 @@
 }
 
 .icon-edit {
-  background-color: var(--text-color);
+  background-color: var(--primary);
   mask-image: url("../icon/icon-edit.svg");
 }
 
 .icon-delete {
-  background-color: var(--text-color);
+  background-color: var(--primary);
   mask-image: url("../icon/icon-delete.svg");
 }
 

@@ -39,7 +39,7 @@ hr {
 
 #check-complete-task:checked ~ label > .icon-dropdown {
   transform: rotate(-180deg);
-  background-color: #ccced2;
+  background-color: var(--icon-second-color);
 }
 
 #check-complete-task:checked ~ .list-completed-task {
@@ -66,7 +66,7 @@ hr {
   width: 28px;
   height: 28px;
   border-radius: 100px;
-  border: 1px solid #ccced2;
+  border: 1px solid var(--icon-second-color);
 }
 
 .checkbox-item-complete > label > span {
@@ -75,7 +75,7 @@ hr {
 }
 
 .checkbox-item-complete > input:checked ~ label > div {
-  background-color: #ff5f26;
+  background-color: var(--primary);
   background-image: url(../img/check.png);
   background-repeat: no-repeat;
   background-position: center;
