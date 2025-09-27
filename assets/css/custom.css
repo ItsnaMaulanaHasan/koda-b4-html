@@ -1,4 +1,6 @@
 .custom-icon {
+  display: flex;
+  align-items: center;
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
@@ -12,7 +14,6 @@
 }
 
 .icon-dropdown {
-  background-color: var(--primary);
   mask-image: url("../icon/icon-dropdown.svg");
 }
 
@@ -36,7 +37,7 @@
 }
 
 .icon-kebab {
-  background-color: var(--icon-second-color);
+  background-color: var(--text-color);
   mask-image: url("../icon/icon-kebab.svg");
 }
 

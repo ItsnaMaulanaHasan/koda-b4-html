@@ -15,24 +15,6 @@
   background-color: var(--icon-second-color);
 } */
 
-/* .sorting > input:checked ~ .option-sort-wrapper > .option-sort {
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  border: 1px solid var(--icon-second-color);
-  border-radius: 8px;
-  padding: 1.5rem;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #000;
-  background-color: #fff;
-  top: 62px;
-  width: 200px;
-  right: 0;
-} */
-
 /* To do list */
 /* add item */
 /* list item */
