@@ -1,4 +1,0 @@
-navbar nav > div:nth-child(2) input:checked + .icon-dropdown {
-  transform: rotate(180deg);
-  background-color: var(--icon-second-color);
-}
