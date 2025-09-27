@@ -1,10 +1,7 @@
 .custom-icon {
-  width: 24px;
-  height: 24px;
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  display: inline-block;
 }
 
 .custom-icon2 {

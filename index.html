@@ -10,38 +10,42 @@
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/content.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
+  <body class="md:bg-[var(--bg-color)]">
     <header>
-      <section id="navbar">
+      <section id="navbar" class="fixed w-full top-0 z-2 bg-white md:bg-[var(--bg-color)]">
         <!-- navbar -->
-        <input type="checkbox" name="sidenav" id="hambuger-menu" />
-        <nav>
-          <img src="./assets/icon/icon-logo.svg" alt="Logo Wazwez" />
-          <div>
-            <i class="custom-icon icon-notif"></i>
-            <div>
-              <div class="photo-profile-wrap">
-                <div class="photo-profile"></div>
+        <nav class="flex px-10 py-10 md:px-15 md:py-10 justify-between items-center">
+          <!-- logo -->
+          <img src="./assets/icon/icon-logo.svg" alt="Logo Wazwez" class="w-30 md:w-auto cursor-pointer" />
+          <!-- right nav -->
+          <div class="hidden md:flex items-center gap-7">
+            <!-- icon notif -->
+            <i class="custom-icon icon-notif cursor-pointer w-6 h-6"></i>
+            <!-- profile -->
+            <div class="flex gap-5 items-center">
+              <!-- photo profile -->
+              <div class="w-10 h-10 rounded-full border border-[var(--icon-second-color)] justify-items-center content-center cursor-pointer">
+                <div class="photo-profile w-8 h-8 rounded-full bg-[url('./assets/img/photo-profile.jpeg')] bg-center bg-cover bg-no-repeat"></div>
               </div>
-              <div>Krozeo Jupyter</div>
-              <label>
-                <input type="checkbox" name="dropdown-nav" />
-                <i class="custom-icon icon-dropdown"></i>
-              </label>
+              <!-- profile name -->
+              <div class="cursor-pointer">Krozeo Jupyter</div>
+              <!-- dropdown profile -->
+              <i class="custom-icon icon-dropdown w-6 h-6"></i>
             </div>
           </div>
-          <label for="hambuger-menu">
-            <i class="custom-icon icon-hamburger-menu"></i>
-          </label>
+          <!-- hamburger menu mobile -->
+          <i class="custom-icon icon-hamburger-menu flex items-center w-10 h-10 md:hidden"></i>
         </nav>
-        <div class="nav-mobile">
-          <a href="#">Notification</a>
-          <a href="#">Profile</a>
+        <!-- item hamburger menu mobile -->
+        <div class="nav-mobile flex flex-col w-full fixed items-center z-2 bg-white gap-7 py-5 text-base md:hidden">
+          <a href="#" class="text-[var(--text-color)]decoration-none duration-400 hover:text-[var(--primary)] hover:scale-110 transition duration-500">Notification</a>
+          <a href="#" class="text-[var(--text-color)]decoration-none duration-400 hover:text-[var(--primary)] hover:scale-110 transition duration-500">Profile</a>
         </div>
       </section>
     </header>
-    <main>
+    <main class="mt-38 justify-items-center">
       <section id="content-container">
         <div class="content">
           <!-- content header -->
