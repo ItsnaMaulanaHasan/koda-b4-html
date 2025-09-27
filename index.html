@@ -32,7 +32,7 @@
               <!-- profile name -->
               <div class="cursor-pointer">Krozeo Jupyter</div>
               <!-- dropdown profile -->
-              <i class="custom-icon icon-dropdown w-6 h-6"></i>
+              <i class="custom-icon icon-dropdown w-7 h-7"></i>
             </div>
           </div>
           <!-- hamburger menu mobile -->
@@ -67,7 +67,7 @@
             <div class="option-sort-wrapper relative">
               <div class="flex items-center px-[0.875rem] py-[0.625rem] text-[var(--primary)] bg-white border border-[var(--primary)] rounded-[50px] font-[600] text-[0.875rem] cursor-pointer">
                 By Tanggal
-                <i class="custom-icon icon-dropdown w-5 h-5 transition duration-300"></i>
+                <i class="custom-icon icon-dropdown w-7 h-7 transition duration-300"></i>
               </div>
               <div class="option-sort hidden">
                 <label class="flex justify-between">
@@ -130,7 +130,7 @@
                     <div class="font-[400] text-[0.875rem] text-[var(--text-secondary)]">Tugas untuk design team</div>
                   </div>
                 </div>
-                <i class="custom-icon icon-dropdown w-5 h-5 transition duration-300 cursor-pointer"></i>
+                <i class="custom-icon icon-dropdown w-7 h-7 transition duration-300 cursor-pointer"></i>
               </div>
               <!-- subtask -->
               <div class="item-subtask flex flex-col gap-[16px] p-[1rem] bg-[var(--bg-color)] rounded-[8px]">
@@ -158,55 +158,22 @@
         </div>
         <!-- completed task -->
         <footer>
-          <section id="completed-task">
-            <hr />
-            <input type="checkbox" name="check-complete-task" id="check-complete-task" />
-            <label for="check-complete-task">
-              <i class="custom-icon icon-dropdown"></i>
-              <span>Terselesaikan (3 Tugas)</span>
-            </label>
-            <div class="list-completed-task">
+          <section id="completed-task" class="flex flex-col gap-[24px]">
+            <hr class="shrink-0 w-full" />
+            <div class="flex items-center gap-[8px] cursor-pointer">
+              <i class="custom-icon icon-dropdown w-7 h-7 transform -rotate-90 transition duration-300 ease-in-out"></i>
+              <span class="font-[500] text-[1.125rem] text-[#7a7f83]">Terselesaikan (3 Tugas)</span>
+            </div>
+            <div class="list-completed-task flex flex-col gap-[16px]">
               <div class="item-wrap">
-                <input type="checkbox" name="dropdown-completed" id="dropdown-completed-1" />
                 <div class="item-title">
                   <div class="checkbox-item-complete">
-                    <input id="completed-1" type="checkbox" />
-                    <label for="completed-1">
-                      <div></div>
-                      <span>Requirements Details</span>
-                    </label>
+                    <div class="flex gap-[14px] items-center">
+                      <div class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
+                      <span class="font-[500] text-[1.125rem]">Requirements Details</span>
+                    </div>
                   </div>
                   <label for="dropdown-completed-1">
-                    <i class="custom-icon icon-dropdown"></i>
-                  </label>
-                </div>
-              </div>
-              <div class="item-wrap">
-                <input type="checkbox" name="dropdown-completed" id="dropdown-completed-2" />
-                <div class="item-title">
-                  <div class="checkbox-item-complete">
-                    <input id="completed-2" type="checkbox" />
-                    <label for="completed-2">
-                      <div></div>
-                      <span>Backlog Teams</span>
-                    </label>
-                  </div>
-                  <label for="dropdown-completed-2">
-                    <i class="custom-icon icon-dropdown"></i>
-                  </label>
-                </div>
-              </div>
-              <div class="item-wrap">
-                <input type="checkbox" name="dropdown-completed" id="dropdown-completed-3" />
-                <div class="item-title">
-                  <div class="checkbox-item-complete">
-                    <input id="completed-3" type="checkbox" />
-                    <label for="completed-3">
-                      <div></div>
-                      <span>Meeting With Teams</span>
-                    </label>
-                  </div>
-                  <label for="dropdown-completed-3">
                     <i class="custom-icon icon-dropdown"></i>
                   </label>
                 </div>

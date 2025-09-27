@@ -1,80 +1,10 @@
 /* content footer */
-
-#completed-task {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-hr {
-  flex-shrink: 0;
-  width: 100%;
-}
-
-#completed-task > label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
-#completed-task > label > .icon-dropdown {
-  transform: rotate(-90deg);
-  transition: transform 0.3s ease;
-}
-
-#completed-task > label > span {
-  font-weight: 500;
-  font-size: 1.125rem;
-  color: #7a7f83;
-}
-
-#completed-task > input {
-  display: none;
-}
-
-.list-completed-task {
-  display: none;
-}
-
-#check-complete-task:checked ~ label > .icon-dropdown {
+/* #check-complete-task:checked ~ label > .icon-dropdown {
   transform: rotate(-180deg);
   background-color: var(--icon-second-color);
-}
+} */
 
-#check-complete-task:checked ~ .list-completed-task {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.list-completed-task > .item-wrap > .item-title .checkbox-item-complete > div > label {
-  text-decoration: line-through;
-}
-
-.checkbox-item-complete > label {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.checkbox-item-complete > input {
-  display: none;
-}
-
-.checkbox-item-complete > label > div {
-  width: 28px;
-  height: 28px;
-  border-radius: 100px;
-  border: 1px solid var(--icon-second-color);
-}
-
-.checkbox-item-complete > label > span {
-  font-weight: 500;
-  font-size: 1.125rem;
-}
-
-.checkbox-item-complete > input:checked ~ label > div {
+/* .checkbox-item-complete > input:checked ~ label > div {
   background-color: var(--primary);
   background-image: url(../img/check.png);
   background-repeat: no-repeat;
@@ -83,4 +13,4 @@ hr {
 
 .checkbox-item-complete > input:checked ~ label > span {
   text-decoration: line-through;
-}
+} */
