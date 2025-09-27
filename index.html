@@ -7,9 +7,6 @@
     <title>Wazwez.</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/custom.css" />
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
-    <link rel="stylesheet" href="./assets/css/content.css" />
-    <link rel="stylesheet" href="./assets/css/footer.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body class="md:bg-[var(--bg-color)]">
@@ -47,7 +44,7 @@
     </header>
 
     <main class="mt-38 justify-items-center content-center">
-      <section id="content-container" class="min-w-auto min-h-[600px] md:min-w-[800px] md:min-h-[672px] p-[2.5rem] overflow-hidden mb-[40px] shadow-xl rounded-[10px] flex flex-col justify-between bg-white">
+      <section id="content-container" class="max-w-[360px] min-h-[600px] md:min-w-[800px] md:min-h-[672px] p-[2.5rem] overflow-hidden mb-[40px] shadow-xl rounded-[10px] flex flex-col justify-between bg-white">
         <div class="content flex flex-col gap-[16px] mb-[28px]">
           <!-- content header -->
           <header class="flex justify-between items-center">
@@ -57,7 +54,7 @@
               <div class="text-[1rem] font-[400] text-[var(--text-secondary)]">Buat list tugas harian saya</div>
             </div>
             <div class="flex items-center gap-[8px] rounded-[60px] px-[0.9375rem] py-[0.75rem] bg-[var(--primary)] text-[1rem] font-[600] text-white border-none cursor-pointer">
-              <i class="custom-icon icon-add w-5 h-5"></i><span>Tambah tugas</span>
+              <i class="custom-icon icon-add w-5 h-5"></i><span class="hidden md:inline-block">Tambah tugas</span>
             </div>
           </header>
 
@@ -67,7 +64,7 @@
             <div class="option-sort-wrapper relative">
               <div class="flex items-center px-[0.875rem] py-[0.625rem] text-[var(--primary)] bg-white border border-[var(--primary)] rounded-[50px] font-[600] text-[0.875rem] cursor-pointer">
                 By Tanggal
-                <i class="custom-icon icon-dropdown w-7 h-7 transition duration-300"></i>
+                <i class="custom-icon icon-dropdown w-5 h-5 transition duration-300"></i>
               </div>
               <div class="option-sort hidden">
                 <label class="flex justify-between">
@@ -86,30 +83,42 @@
             </div>
           </div>
 
-          <!-- items list -->
+          <!-- to do list -->
           <div class="items-list flex flex-col gap-[16px]">
-            <div class="item-add flex gap-[24px] w-[calc(100%+80px)] ml-[-40px] px-[2.5rem] py-[0.5rem] bg-[var(--bg-color)]">
+            <!-- add item -->
+            <div class="item-add flex gap-[14px] w-[calc(100%+80px)] ml-[-40px] px-[2.5rem] py-[0.5rem] bg-[var(--bg-color)]">
+              <!-- icon checkbox -->
               <div class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
-              <div class="flex gap-[12px] flex-col">
+              <!-- form input -->
+              <form action="" method="get" class="flex gap-[12px] flex-col">
+                <!-- input name -->
                 <div class="input-name">
                   <label>
-                    <input type="text" placeholder="Masukkan nama tugas" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[500] text-[1.125rem] text-[var(--text-color)]" />
+                    <input type="text" placeholder="Masukkan nama tugas" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[500] text-[1.125rem] text-[var(--text-color)]" name="name-task" />
                   </label>
                 </div>
+                <!-- input description -->
                 <div class="input-description flex items-center gap-[8px]">
                   <i class="custom-icon icon-description w-5 h-5"></i>
                   <label>
-                    <input type="text" placeholder="Deskripsi Tugas (Optional)" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)]" />
+                    <input
+                      type="text"
+                      placeholder="Deskripsi Tugas (Optional)"
+                      class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)] w-[213px]"
+                      name="description-task"
+                    />
                   </label>
                 </div>
+                <!-- input date -->
                 <div class="input-date flex items-center gap-[8px]">
                   <i class="custom-icon icon-calender w-5 h-5"></i>
                   <label>
-                    <input type="text" placeholder="Tanggal & Waktu" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)]" />
+                    <input type="text" placeholder="Tanggal & Waktu" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)]" name="date-task" />
                   </label>
                 </div>
-              </div>
+              </form>
             </div>
+            <!-- list item to do list -->
             <div class="item-wrap flex flex-col gap-[16px]">
               <div class="item-title flex justify-between">
                 <div class="checkbox-item flex gap-[14px]">
