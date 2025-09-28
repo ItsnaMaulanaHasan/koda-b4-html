@@ -5,6 +5,7 @@ requirejs.config({
     tasksController: "./lib/tasksController",
     btnController: "./lib/btnController",
     jquery: "//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min",
+    moment: "//cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min",
   },
 });
 
