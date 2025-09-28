@@ -1,4 +1,4 @@
-define(["jquery"], function ($) {
+define(function () {
   const setDataToLocalStorage = (datas = [], newDatas = {}) => {
     datas.push(newDatas);
     window.localStorage.setItem("dataTasks", JSON.stringify(datas));

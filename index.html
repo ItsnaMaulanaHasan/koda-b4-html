@@ -51,7 +51,7 @@
 
     <main class="mt-38 justify-items-center content-center">
       <section id="content-container" class="min-w-[360px] min-h-[600px] md:min-w-[800px] md:min-h-[672px] p-[2.5rem] overflow-hidden mb-[40px] shadow-xl rounded-[10px] flex flex-col justify-between bg-white">
-        <div class="content flex flex-col gap-[16px] mb-[28px]">
+        <div class="flex flex-col gap-[16px] mb-[28px]">
           <!-- content header -->
           <header class="flex justify-between items-center">
             <div class="text-header">
@@ -92,38 +92,37 @@
             </div>
           </div>
 
-          <!-- to do list -->
-          <div class="items-list flex flex-col gap-[16px]">
-            <!-- add task -->
-            <div id="form-add-container" class="hidden flex gap-[14px] w-[calc(100%+80px)] ml-[-40px] px-[2.5rem] py-[0.5rem] bg-[var(--bg-color)]">
-              <!-- icon checkbox -->
-              <div class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
-              <!-- form input -->
-              <form id="form-add-task" action="" method="get" class="flex gap-[12px] flex-col">
-                <!-- input name -->
-                <div class="input-name">
-                  <input type="text" placeholder="Masukkan nama tugas" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[500] text-[1.125rem] text-[var(--text-color)]" name="name-task" />
-                </div>
-                <!-- input description -->
-                <div class="input-description flex items-center gap-[8px]">
-                  <i class="custom-icon icon-description w-5 h-5"></i>
-                  <input
-                    type="text"
-                    placeholder="Deskripsi Tugas (Optional)"
-                    class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)] w-[213px]"
-                    name="description-task"
-                  />
-                </div>
-                <!-- input date -->
-                <div class="input-date flex items-center gap-[8px]">
-                  <i class="custom-icon icon-calender w-5 h-5"></i>
-                  <input type="text" placeholder="Tanggal & Waktu" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)]" name="date-task" />
-                </div>
-                <button type="submit" class="hidden"></button>
-              </form>
-            </div>
+          <!-- add task -->
+          <div id="form-add-container" class="hidden flex gap-[14px] w-[calc(100%+2.5rem)] ml-[-2.5rem] px-[2.5rem] py-[0.5rem] bg-[var(--bg-color)]">
+            <!-- icon checkbox -->
+            <div class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
+            <!-- form input -->
+            <form id="form-add-task" action="" method="get" class="flex gap-[12px] flex-col">
+              <!-- input name -->
+              <div class="input-name">
+                <input type="text" placeholder="Masukkan nama tugas" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[500] text-[1.125rem] text-[var(--text-color)]" name="nameTask" />
+              </div>
+              <!-- input description -->
+              <div class="input-description flex items-center gap-[8px]">
+                <i class="custom-icon icon-description w-5 h-5"></i>
+                <input
+                  type="text"
+                  placeholder="Deskripsi Tugas (Optional)"
+                  class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)] w-[213px]"
+                  name="descriptionTask"
+                />
+              </div>
+              <!-- input date -->
+              <div class="input-date flex items-center gap-[8px]">
+                <i class="custom-icon icon-calender w-5 h-5"></i>
+                <input type="text" placeholder="Tanggal & Waktu" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)]" name="dateTask" />
+              </div>
+              <button type="submit" class="hidden"></button>
+            </form>
+          </div>
 
-            <!-- list task to do list -->
+          <!-- list task to do list -->
+          <div id="container-list-tasks" class="flex flex-col gap-[16px]">
             <div class="item-task flex flex-col gap-[16px]" data-id-task="task1">
               <div class="flex justify-between">
                 <div class="checkbox-task flex gap-[14px] cursor-pointer" data-id-task="task1">
