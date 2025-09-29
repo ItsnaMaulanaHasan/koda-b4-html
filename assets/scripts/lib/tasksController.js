@@ -78,9 +78,11 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
     }
 
     if (completedTask.length === 0) {
+      $("#count-completed").text("0");
       completedTaskHtmlContent = `<div class="flex justify-center items-center min-h-[50px] font-bold text-lg text-[var(--text-secondary)]">Belum ada Task</div>`;
     } else {
       completedTask.forEach((task) => {
+        $("#count-completed").text(completedTask.length);
         completedTaskHtmlContent += taskCompletedTemplate(task);
       });
     }
