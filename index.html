@@ -93,7 +93,7 @@
           </div>
 
           <!-- add task -->
-          <div id="form-add-container" class="hidden flex gap-[14px] w-[calc(100%+2.5rem)] ml-[-2.5rem] px-[2.5rem] py-[0.5rem] bg-[var(--bg-color)]">
+          <div id="form-add-container" class="hidden flex gap-[14px] w-[calc(100%+5rem)] ml-[-2.5rem] px-[2.5rem] py-[0.5rem] bg-[var(--bg-color)]">
             <!-- icon checkbox -->
             <div class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
             <!-- form input -->
@@ -130,64 +130,7 @@
           </div>
 
           <!-- list task to do list -->
-          <div id="container-list-tasks" class="flex flex-col gap-[16px]">
-            <div class="item-task flex flex-col gap-[16px]" data-id-task="task1">
-              <div class="flex justify-between">
-                <div class="checkbox-task flex gap-[14px] cursor-pointer" data-id-task="task1">
-                  <!-- checkbox -->
-                  <div id="checkbox-task1" class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
-                  <div>
-                    <div class="flex items-center text-[var(--text-color)] relative">
-                      <!-- title task -->
-                      <div class="font-[500] text-[1.125rem] mr-[1rem]">Product Design</div>
-                      <!-- date task -->
-                      <span class="font-[500] text-[0.75rem] text-[var(--primary)] px-[0.75rem] py-[0.5rem] bg-[var(--secondary)] rounded-[50px]">Hari ini</span>
-                      <!-- btn action -->
-                      <button id="btn-action-task1" class="hidden">
-                        <i class="custom-icon icon-kebab w-5 h-5 flex items-center cursor-pointer"></i>
-                      </button>
-                      <!-- option action -->
-                      <div id="option-action-task1" class="hidden absolute right-[-50px] md:right-[-165px] top-[40px] flex flex-col bg-white gap-[12px] z-2 p-[1.5rem] rounded-[8px] border border-[var(--icon-second-color)]">
-                        <div class="flex items-center gap-[12px] cursor-pointer">
-                          <i class="custom-icon icon-edit w-5 h-5"></i>
-                          Rename Task
-                        </div>
-                        <div class="flex items-center gap-[12px] cursor-pointer"><i class="custom-icon icon-delete w-5 h-5"></i>Delete Task</div>
-                      </div>
-                    </div>
-                    <!-- description task -->
-                    <div class="font-[400] text-[0.875rem] text-[var(--text-secondary)]">Tugas untuk design team</div>
-                  </div>
-                </div>
-                <!-- btn dropdown task -->
-                <button class="btn-dropdown-task flex items-start" data-id-task="task1">
-                  <i class="custom-icon icon-dropdown w-7 h-7 bg-[var(--primary)] transition duration-300 cursor-pointer"></i>
-                </button>
-              </div>
-              <!-- subtask -->
-              <div id="subtask-task1" class="hidden flex flex-col gap-[16px] p-[1rem] bg-[var(--bg-color)] rounded-[8px]">
-                <!-- header subtask -->
-                <div class="flex justify-between items-center">
-                  <span class="font-[500] text-[1rem] text-[var(--text-color)]">Subtask</span>
-                  <button class="px-[0.625rem] py-[0.375rem] flex items-center gap-[6px] border border-[var(--icon-second-color)] rounded-[50px] text-[var(--primary)] bg-white cursor-pointer text-[0.75rem] font-[600]">
-                    <i class="custom-icon2 icon-add-filled"></i>
-                    Tambah
-                  </button>
-                </div>
-                <!-- list subtask -->
-                <div class="flex flex-col gap-[10px]">
-                  <!-- item subtask -->
-                  <div class="flex justify-between items-center">
-                    <div class="checkbox-subtask flex gap-[14px] items-center cursor-pointer" data-id-subtask="task1-subtask1">
-                      <div id="checkbox-task1-subtask1" class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
-                      <span class="font-[400] text-[1rem] text-[var(--text-color)]">Design review</span>
-                    </div>
-                    <i class="custom-icon icon-trash w-5 h-5 cursor-pointer"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div id="container-list-tasks" class="flex flex-col gap-[16px]"></div>
         </div>
 
         <!-- completed task -->
@@ -200,24 +143,6 @@
             </button>
             <div id="completed-task" class="hidden flex flex-col gap-[16px]">
               <!-- item completed task -->
-              <div class="flex justify-between items-center">
-                <div class="flex gap-[14px] items-center">
-                  <div class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)] bg-[var(--primary)] bg-[url('./assets/img/check.png')] bg-no-repeat bg-center"></div>
-                  <span class="font-[500] text-[1.125rem] line-through">Requirements Details</span>
-                </div>
-                <button class="btn-dropdown-completed-task" data-id-task="task1">
-                  <i class="custom-icon icon-dropdown w-7 h-7 bg-[var(--primary)] transition duration-300 cursor-pointer"></i>
-                </button>
-              </div>
-              <div class="flex justify-between items-center">
-                <div class="flex gap-[14px] items-center">
-                  <div class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)] bg-[var(--primary)] bg-[url('./assets/img/check.png')] bg-no-repeat bg-center"></div>
-                  <span class="font-[500] text-[1.125rem] line-through">Requirements Details</span>
-                </div>
-                <button class="btn-dropdown-completed-task" data-id-task="task2">
-                  <i class="custom-icon icon-dropdown w-7 h-7 bg-[var(--primary)] transition duration-300 cursor-pointer"></i>
-                </button>
-              </div>
             </div>
           </section>
         </footer>

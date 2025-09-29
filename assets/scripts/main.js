@@ -1,6 +1,7 @@
-define(["jquery", "localStorageController", "tasksController", "btnController", "moment"], function ($, { setDataToLocalStorage, getDataTasks }, { processDataAdd, generateListTasks }, btnController, moment) {
+define(["jquery", "localStorageController", "tasksController", "btnController", "moment"], function ($, { setDataToLocalStorage, getDataTasks, subscribe }, { processDataAdd, generateListTasks }, btnController, moment) {
   $(() => {
     btnController();
+    subscribe(generateListTasks);
     generateListTasks();
     $("#form-add-task").submit(function (e) {
       const dateInput = $(this).find('[name="dateTask"]').val().trim();
@@ -10,7 +11,6 @@ define(["jquery", "localStorageController", "tasksController", "btnController", 
         const processedData = processDataAdd(formData);
         const dataTasks = getDataTasks();
         setDataToLocalStorage(dataTasks, processedData);
-        generateListTasks();
         $(this)[0].reset();
       } else {
         e.preventDefault();

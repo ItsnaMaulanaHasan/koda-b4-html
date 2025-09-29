@@ -1,7 +1,6 @@
 define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
   const tasksTemplate = (dataTasks) => {
     const { idTask, nameTask, descriptionTask, dateTask } = dataTasks;
-
     return `
     <div class="item-task flex flex-col gap-[16px]" data-id-task="${idTask}">
         <div class="flex justify-between">
@@ -15,11 +14,11 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
                             <i class="custom-icon icon-kebab w-5 h-5 flex items-center cursor-pointer"></i>
                         </button>
                         <div id="option-action-${idTask}" class="hidden absolute min-w-[170px] right-[-50px] md:right-[-165px] top-[40px] flex flex-col bg-white gap-[12px] z-2 p-[1.5rem] rounded-[8px] border border-[var(--icon-second-color)]">
-                            <div class="flex items-center gap-[12px] cursor-pointer">
+                            <button class="btn-rename flex items-center gap-[12px] cursor-pointer data-id-task="${idTask}"">
                                 <i class="custom-icon icon-edit w-5 h-5"></i>
                                 Rename Task
-                            </div>
-                            <div class="flex items-center gap-[12px] cursor-pointer"><i class="custom-icon icon-delete w-5 h-5"></i>Delete Task</div>
+                            </button>
+                            <button class="btn-delete flex items-center gap-[12px] cursor-pointer" data-id-task="${idTask}"><i class="custom-icon icon-delete w-5 h-5"></i>Delete Task</button>
                         </div>
                     </div>
                     <div class="font-[400] text-[0.875rem] text-[var(--text-secondary)]">${descriptionTask}</div>
@@ -30,21 +29,64 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
             </button>
         </div>
         <div id="subtask-${idTask}" class="hidden flex flex-col gap-[16px] p-[1rem] bg-[var(--bg-color)] rounded-[8px]">
+          <!-- header subtask -->
+          <div class="flex justify-between items-center">
+            <span class="font-[500] text-[1rem] text-[var(--text-color)]">Subtask</span>
+            <button class="px-[0.625rem] py-[0.375rem] flex items-center gap-[6px] border border-[var(--icon-second-color)] rounded-[50px] text-[var(--primary)] bg-white cursor-pointer text-[0.75rem] font-[600]">
+              <i class="custom-icon2 icon-add-filled"></i>
+              Tambah
+            </button>
+          </div>
+          <!-- list subtask -->
+          <div id="subtask-${idTask}-container" class="flex flex-col gap-[10px]">
+          
+          </div>
+        </div>
+    </div>
+    `;
+  };
+
+  const taskCompletedTemplate = (dataTasks) => {
+    const { idTask, nameTask } = dataTasks;
+    return `
+    <div class="item-task-completed flex justify-between items-center" data-id-task="${idTask}">
+        <div id="checkbox-completed" data-id-task="${idTask}" class="flex gap-[14px] items-center cursor-pointer">
+            <div  
+                class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)] bg-[var(--primary)] bg-[url('./assets/img/check.png')] bg-no-repeat bg-center">
             </div>
+            <span class="font-[500] text-[1.125rem] line-through">${nameTask}</span>
+        </div>
+        <button class="btn-dropdown-completed-task" data-id-task="${idTask}">
+            <i class="custom-icon icon-dropdown w-7 h-7 bg-[var(--primary)] transition duration-300 cursor-pointer"></i>
+        </button>
     </div>
     `;
   };
 
   const generateListTasks = () => {
     const listTasks = getDataTasks();
+    let taskHtmlContent = ``;
+    let completedTaskHtmlContent = ``;
+    const taskFilter = listTasks.filter((task) => task.checked === false);
+    const completedTask = listTasks.filter((task) => task.checked === true);
+    if (taskFilter.length === 0) {
+      taskHtmlContent = `<div class="flex justify-center items-center min-h-[200px] font-bold text-lg text-[var(--text-secondary)]">Belum ada Task</div>`;
+    } else {
+      taskFilter.forEach((task) => {
+        taskHtmlContent += tasksTemplate(task);
+      });
+    }
 
-    let htmlContent = ``;
+    if (completedTask.length === 0) {
+      completedTaskHtmlContent = `<div class="flex justify-center items-center min-h-[50px] font-bold text-lg text-[var(--text-secondary)]">Belum ada Task</div>`;
+    } else {
+      completedTask.forEach((task) => {
+        completedTaskHtmlContent += taskCompletedTemplate(task);
+      });
+    }
 
-    listTasks.forEach((task) => {
-      htmlContent += tasksTemplate(task);
-    });
-
-    $("#container-list-tasks").html(htmlContent);
+    $("#container-list-tasks").html(taskHtmlContent);
+    $("#completed-task").html(completedTaskHtmlContent);
   };
 
   const processDataAdd = (formData = []) => {
@@ -62,5 +104,24 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
     return processedData;
   };
 
-  return { processDataAdd, generateListTasks };
+  const checkedTask = (idTask) => {
+    const dataTasks = getDataTasks();
+    dataTasks.forEach((data) => {
+      if (data.idTask === idTask) {
+        data.checked = !data.checked;
+      }
+    });
+    window.localStorage.setItem("dataTasks", JSON.stringify(dataTasks));
+    generateListTasks();
+  };
+
+  const deleteTask = (idTask) => {
+    const dataTasks = getDataTasks();
+    const dataDelete = dataTasks.findIndex((data) => data.idTask === idTask);
+    dataTasks.splice(dataDelete, 1);
+    window.localStorage.setItem("dataTasks", JSON.stringify(dataTasks));
+    generateListTasks();
+  };
+
+  return { processDataAdd, generateListTasks, checkedTask, deleteTask };
 });
