@@ -14,7 +14,7 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
                             <i class="custom-icon icon-kebab w-5 h-5 flex items-center cursor-pointer"></i>
                         </button>
                         <div id="option-action-${idTask}" class="hidden absolute min-w-[170px] right-[-50px] md:right-[-165px] top-[40px] flex flex-col bg-white gap-[12px] z-2 p-[1.5rem] rounded-[8px] border border-[var(--icon-second-color)]">
-                            <button class="btn-rename flex items-center gap-[12px] cursor-pointer data-id-task="${idTask}"">
+                            <button class="btn-rename flex items-center gap-[12px] cursor-pointer" data-id-task="${idTask}"">
                                 <i class="custom-icon icon-edit w-5 h-5"></i>
                                 Rename Task
                             </button>
@@ -79,13 +79,26 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
           <div id="checkbox-${idTask}-${idSubtask}" class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
           <span class="font-[400] text-[1rem] text-[var(--text-color)]">${nameSubtask}</span>
         </div>
-        <i class="custom-icon icon-trash w-5 h-5 cursor-pointer"></i>
+        <button class="btn-delete-subtask" data-id-task="${idTask}" data-id-subtask="${idSubtask}"> 
+          <i class="custom-icon icon-trash w-5 h-5 cursor-pointer"></i>
+        </button>
       </div>
     `;
   };
 
-  const generateListTasks = () => {
+  const generateListTasks = (sortType = "by-date") => {
     const listTasks = getDataTasks();
+
+    if (sortType === "by-date") {
+      listTasks.sort((a, b) => {
+        const dateA = a.dateTask.split("-").reverse().join("-");
+        const dateB = b.dateTask.split("-").reverse().join("-");
+        return new Date(dateA) - new Date(dateB);
+      });
+    } else if (sortType === "newest") {
+      listTasks.reverse();
+    }
+
     let taskHtmlContent = ``;
     let completedTaskHtmlContent = ``;
     const taskFilter = listTasks.filter((task) => task.checked === false);
@@ -180,5 +193,22 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
     generateListSubtask(idTask);
   };
 
-  return { processDataAdd, generateListTasks, checkedTask, deleteTask, addSubtask };
+  const deleteSubtask = (idTask, idSubtask) => {
+    const dataTasks = getDataTasks();
+    const taskIndex = dataTasks.findIndex((data) => data.idTask === idTask);
+    const subtaskIndex = dataTasks[taskIndex].subtasks.findIndex((sub) => sub.idSubtask === idSubtask);
+    dataTasks[taskIndex].subtasks.splice(subtaskIndex, 1);
+    window.localStorage.setItem("dataTasks", JSON.stringify(dataTasks));
+    generateListSubtask(idTask);
+  };
+
+  const renameTask = (idTask, newName) => {
+    const dataTasks = getDataTasks();
+    const taskIndex = dataTasks.findIndex((data) => data.idTask === idTask);
+    dataTasks[taskIndex].nameTask = newName;
+    window.localStorage.setItem("dataTasks", JSON.stringify(dataTasks));
+    generateListTasks();
+  };
+
+  return { processDataAdd, generateListTasks, checkedTask, deleteTask, addSubtask, deleteSubtask, renameTask };
 });
