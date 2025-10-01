@@ -58,6 +58,12 @@ define(["jquery", "tasksController"], function ($, { deleteTask, checkedTask }) 
         checkedTask(idTask);
       });
 
+      //btn add subtask
+      $(".btn-add-subtask").on("click", function () {
+        const idTask = $(this).data("idTask");
+        $(`#form-subtask-${idTask}`).toggleClass("hidden");
+      });
+
       // completed task
       $("#btn-completed-task").on("click", function () {
         $("#completed-task").toggleClass("hidden");

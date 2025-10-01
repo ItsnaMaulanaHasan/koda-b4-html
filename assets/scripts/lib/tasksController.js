@@ -32,11 +32,18 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
           <!-- header subtask -->
           <div class="flex justify-between items-center">
             <span class="font-[500] text-[1rem] text-[var(--text-color)]">Subtask</span>
-            <button class="px-[0.625rem] py-[0.375rem] flex items-center gap-[6px] border border-[var(--icon-second-color)] rounded-[50px] text-[var(--primary)] bg-white cursor-pointer text-[0.75rem] font-[600]">
+            <button data-id-task="${idTask}" class="btn-add-subtask px-[0.625rem] py-[0.375rem] flex items-center gap-[6px] border border-[var(--icon-second-color)] rounded-[50px] text-[var(--primary)] bg-white cursor-pointer text-[0.75rem] font-[600]">
               <i class="custom-icon2 icon-add-filled"></i>
               Tambah
             </button>
           </div>
+          <!-- input subtask -->
+          <form id="form-subtask-${idTask}" class="hidden" data-id-task="${idTask}" action="" method="get">
+            <div>
+              <input class="border p-2 w-full rounded-lg" type="text" placeholder="Masukkan nama subtask" required maxlength="20" name="nameSubtask" />
+            </div>
+            <button type="submit" class="hidden"></button>
+          </form>
           <!-- list subtask -->
           <div id="subtask-${idTask}-container" class="flex flex-col gap-[10px]">
           
@@ -63,6 +70,20 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
     `;
   };
 
+  const subtaskTemplate = (dataSubtask) => {
+    const { idTask, idSubtask, nameSubtask } = dataSubtask;
+    return `
+      <!-- item subtask -->
+      <div class="flex justify-between items-center">
+        <div class="checkbox-subtask flex gap-[14px] items-center cursor-pointer" data-id-subtask="${idTask}-${idSubtask}">
+          <div id="checkbox-${idTask}-${idSubtask}" class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
+          <span class="font-[400] text-[1rem] text-[var(--text-color)]">${nameSubtask}</span>
+        </div>
+        <i class="custom-icon icon-trash w-5 h-5 cursor-pointer"></i>
+      </div>
+    `;
+  };
+
   const generateListTasks = () => {
     const listTasks = getDataTasks();
     let taskHtmlContent = ``;
@@ -74,6 +95,7 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
     } else {
       taskFilter.forEach((task) => {
         taskHtmlContent += tasksTemplate(task);
+        generateListSubtask(task.idTask);
       });
     }
 
@@ -89,6 +111,24 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
 
     $("#container-list-tasks").html(taskHtmlContent);
     $("#completed-task").html(completedTaskHtmlContent);
+    taskFilter.forEach((task) => {
+      generateListSubtask(task.idTask);
+    });
+  };
+
+  const generateListSubtask = (idTask) => {
+    const listTasks = getDataTasks();
+    const [filterTask] = listTasks.filter((task) => task.idTask === idTask);
+    const listSubtask = filterTask.subtasks;
+    let subtaskHtmlContent = ``;
+    if (listSubtask.length === 0) {
+      subtaskHtmlContent = ``;
+    } else {
+      listSubtask.forEach((subtask) => {
+        subtaskHtmlContent += subtaskTemplate(subtask);
+        $(`#subtask-${subtask.idTask}-container`).html(subtaskHtmlContent);
+      });
+    }
   };
 
   const processDataAdd = (formData = []) => {
@@ -125,5 +165,20 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
     generateListTasks();
   };
 
-  return { processDataAdd, generateListTasks, checkedTask, deleteTask };
+  const addSubtask = (idTask, dataForm) => {
+    const dataTasks = getDataTasks();
+    const indexAddSubtask = dataTasks.findIndex((data) => data.idTask === idTask);
+    const noSubTask = dataTasks[indexAddSubtask].subtasks.length;
+    const idSubtask = `subtask${noSubTask + 1}`;
+    let newDataSubtask = {};
+    newDataSubtask["idSubtask"] = idSubtask;
+    newDataSubtask["idTask"] = idTask;
+    newDataSubtask = { ...newDataSubtask, ...dataForm };
+    console.log(newDataSubtask);
+    dataTasks[indexAddSubtask].subtasks.push(newDataSubtask);
+    window.localStorage.setItem("dataTasks", JSON.stringify(dataTasks));
+    generateListSubtask(idTask);
+  };
+
+  return { processDataAdd, generateListTasks, checkedTask, deleteTask, addSubtask };
 });

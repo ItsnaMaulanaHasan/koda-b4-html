@@ -1,4 +1,4 @@
-define(["jquery", "localStorageController", "tasksController", "btnController", "moment"], function ($, { setDataToLocalStorage, getDataTasks, subscribe }, { processDataAdd, generateListTasks }, btnController, moment) {
+define(["jquery", "localStorageController", "tasksController", "btnController", "moment"], function ($, { setDataToLocalStorage, getDataTasks, subscribe }, { processDataAdd, generateListTasks, addSubtask }, btnController, moment) {
   $(() => {
     btnController();
     subscribe(generateListTasks);
@@ -16,6 +16,17 @@ define(["jquery", "localStorageController", "tasksController", "btnController", 
         e.preventDefault();
         alert("Format tanggal harus DD-MM-YYYY (contoh: 30-12-2025).");
       }
+    });
+    $("[id^='form-subtask-']").submit(function (e) {
+      e.preventDefault();
+      const idTask = $(this).data("idTask");
+      const formData = $(this).serializeArray();
+      const dataSubtask = {};
+      formData.forEach((data) => {
+        dataSubtask[data.name] = data.value;
+      });
+      addSubtask(idTask, dataSubtask);
+      $(this)[0].reset();
     });
   });
 });
