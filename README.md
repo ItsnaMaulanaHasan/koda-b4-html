@@ -1,15 +1,29 @@
 # Wazwez - Aplikasi Web Manajemen Tugas
 
-![Wazwez Logo](./assets/img/Logo.svg) adalah aplikasi web manajemen tugas yang dirancang untuk membantu Anda mengatur dan melacak proyek pribadi dan tim dengan lebih efektif. Dengan antarmuka yang bersih dan fitur yang fokus pada fungsionalitas inti, Wazwez membuat pengelolaan proyek menjadi sederhana dan efisien.
+![Wazwez Logo](./assets/icon/icon-logo.svg) adalah aplikasi web manajemen tugas yang dirancang untuk membantu Anda mengatur dan melacak proyek pribadi dan tim dengan lebih efektif. Dengan antarmuka yang bersih dan fitur yang fokus pada fungsionalitas inti, Wazwez membuat pengelolaan proyek menjadi sederhana dan efisien.
 
 ---
 
 ## Fitur Utama
 
-- **Manajemen Proyek:** Buat dan kelola berbagai proyek dengan nama dan deskripsi yang jelas.
-- **Sub-Tugas Terperinci:** Pecah proyek besar menjadi sub-tugas yang lebih kecil dan mudah dikelola.
-- **Pelacakan Progres:** Lacak kemajuan setiap sub-tugas dan lihat status proyek Anda secara keseluruhan.
-- **Tampilan Sederhana:** Antarmuka pengguna yang minimalis dan intuitif, sehingga Anda bisa fokus pada pekerjaan.
+Task Manager Application
+Aplikasi web sederhana untuk mengelola task dan subtask dengan antarmuka yang intuitif.
+Fitur Utama
+
+- ✅ **Manajemen Task**: Tambah, edit, hapus, dan tandai task sebagai selesai
+- 📋 **Subtask**: Buat subtask untuk setiap task
+- 📅 **Tanggal Task**: Set tanggal untuk setiap task dengan format DD-MM-YYYY
+- 🔄 **Sorting**: Urutkan task berdasarkan tanggal atau terbaru
+- ✔️ **Completed Tasks**: Lihat daftar task yang sudah selesai
+- 💾 **Local Storage**: Data tersimpan otomatis di browser
+
+Teknologi
+
+- **jQuery**: Manipulasi DOM dan event handling
+- **RequireJS**: Module loader untuk struktur kode yang modular
+- **Moment.js**: Validasi format tanggal
+- **Tailwind CSS**: Styling dengan utility classes
+- **Local Storage**: Penyimpanan data persistent di browser
 
 ## Preview
 
