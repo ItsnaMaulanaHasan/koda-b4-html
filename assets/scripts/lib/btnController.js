@@ -1,4 +1,5 @@
 define(["jquery", "tasksController"], function ($, { deleteTask, checkedTask, deleteSubtask, renameTask }) {
+  let currentSortType = "by-date";
   const btnController = () => {
     $(() => {
       // dropdown profile
@@ -56,20 +57,22 @@ define(["jquery", "tasksController"], function ($, { deleteTask, checkedTask, de
       // btn action task close
       $(document).on("mouseleave", "[id^='option-action-']", function () {
         $(this).addClass("hidden");
-        const idTask = $(this).closest(".item-task").data("idTask");
-        $(`#btn-action-${idTask}`).addClass("hidden");
       });
 
       // delete task
       $(document).on("click", ".btn-delete", function () {
         const idTask = $(this).data("idTask");
-        deleteTask(idTask);
+        if (confirm("Apakah Anda yakin ingin menghapus task ini?")) {
+          deleteTask(idTask);
+        }
       });
 
       // rename task
-      $(document).on("click", ".btn-rename", function () {
+      $(document).on("click", ".btn-rename", function (e) {
+        e.stopPropagation();
         const idTask = $(this).data("idTask");
-        const currentName = $(this).closest(".item-task").find(".font-\\[500\\].text-\\[1\\.125rem\\]").text();
+        const $taskNameElement = $(this).closest("[id^='option-action-']").siblings(".font-\\[500\\].text-\\[1\\.125rem\\]");
+        const currentName = $taskNameElement.text().trim();
         const newName = prompt("Masukkan nama task baru:", currentName);
 
         if (newName && newName.trim() !== "" && newName !== currentName) {
@@ -80,12 +83,11 @@ define(["jquery", "tasksController"], function ($, { deleteTask, checkedTask, de
       // checked task
       $(document).on("click", ".checkbox-task", function () {
         const idTask = $(this).data("idTask");
-        $(`#checkbox-${idTask}`).toggleClass("bg-[var(--primary)] bg-[url('./assets/img/check.png')] bg-no-repeat bg-center");
         checkedTask(idTask);
       });
 
       //btn add subtask
-      $(".btn-add-subtask").on("click", function () {
+      $(document).on("click", ".btn-add-subtask", function () {
         const idTask = $(this).data("idTask");
         $(`#form-subtask-${idTask}`).toggleClass("hidden");
       });
@@ -94,7 +96,9 @@ define(["jquery", "tasksController"], function ($, { deleteTask, checkedTask, de
       $(document).on("click", ".btn-delete-subtask", function () {
         const idTask = $(this).data("idTask");
         const idSubtask = $(this).data("idSubtask");
-        deleteSubtask(idTask, idSubtask);
+        if (confirm("Apakah Anda yakin ingin menghapus subtask ini?")) {
+          deleteSubtask(idTask, idSubtask);
+        }
       });
 
       // completed task
@@ -112,7 +116,6 @@ define(["jquery", "tasksController"], function ($, { deleteTask, checkedTask, de
 
       $(document).on("click", "#checkbox-completed", function () {
         const idTask = $(this).data("idTask");
-        $(this).children("div").toggleClass("bg-[var(--primary)] bg-[url('./assets/img/check.png')] bg-no-repeat bg-center");
         checkedTask(idTask);
       });
 

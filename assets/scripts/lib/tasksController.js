@@ -103,12 +103,12 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
     let completedTaskHtmlContent = ``;
     const taskFilter = listTasks.filter((task) => task.checked === false);
     const completedTask = listTasks.filter((task) => task.checked === true);
+
     if (taskFilter.length === 0) {
       taskHtmlContent = `<div class="flex justify-center items-center min-h-[200px] font-bold text-lg text-[var(--text-secondary)]">Belum ada Task</div>`;
     } else {
       taskFilter.forEach((task) => {
         taskHtmlContent += tasksTemplate(task);
-        generateListSubtask(task.idTask);
       });
     }
 
@@ -132,16 +132,21 @@ define(["jquery", "localStorageController"], function ($, { getDataTasks }) {
   const generateListSubtask = (idTask) => {
     const listTasks = getDataTasks();
     const [filterTask] = listTasks.filter((task) => task.idTask === idTask);
+
+    if (filterTask.length === 0) return;
+
     const listSubtask = filterTask.subtasks;
     let subtaskHtmlContent = ``;
+
     if (listSubtask.length === 0) {
       subtaskHtmlContent = ``;
     } else {
       listSubtask.forEach((subtask) => {
         subtaskHtmlContent += subtaskTemplate(subtask);
-        $(`#subtask-${subtask.idTask}-container`).html(subtaskHtmlContent);
       });
     }
+
+    $(`#subtask-${idTask}-container`).html(subtaskHtmlContent);
   };
 
   const processDataAdd = (formData = []) => {
