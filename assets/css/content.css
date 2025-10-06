@@ -7,9 +7,9 @@
   margin-bottom: 40px;
   box-shadow: 0px 16px 90px 0px rgba(19, 7, 52, 0.08);
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 28px;
   background-color: #fff;
 }
 
@@ -173,28 +173,28 @@
   border: 1px solid var(--icon-second-color);
 }
 
-.item-add > div:nth-child(2) {
+.item-add > form:nth-child(2) {
   display: flex;
   gap: 12px;
   flex-direction: column;
 }
 
-.item-add > div:nth-child(2) {
+.item-add > form:nth-child(2) {
   display: flex;
   gap: 12px;
   flex-direction: column;
 }
 
-.item-add > div > div input {
+.item-add > form > div input {
   border: none;
   background-color: var(--bg-color);
 }
 
-.item-add > div > div input::placeholder {
+.item-add > form > div input::placeholder {
   color: #9e9e9e;
 }
 
-.item-add > div > div input:focus {
+.item-add > form > div input:focus {
   outline: none;
 }
 
@@ -346,7 +346,14 @@
   cursor: pointer;
 }
 
-.item-wrap > input:checked ~ .item-title > .checkbox-item > div > div > label > .icon-kebab {
+.item-wrap
+  > input:checked
+  ~ .item-title
+  > .checkbox-item
+  > div
+  > div
+  > label
+  > .icon-kebab {
   display: inline-block;
 }
 
@@ -481,7 +488,13 @@
     text-overflow: ellipsis;
   }
 
-  .item-wrap > input:checked ~ .item-title > .checkbox-item > div > div > label:first-child {
+  .item-wrap
+    > input:checked
+    ~ .item-title
+    > .checkbox-item
+    > div
+    > div
+    > label:first-child {
     white-space: wrap;
     margin-right: 0.5rem;
   }
