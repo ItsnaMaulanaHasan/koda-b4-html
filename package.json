@@ -1,0 +1,25 @@
+{
+  "name": "koda-b4-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-inject": "^5.0.5",
+    "vite": "^7.1.9"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "jquery": "^3.7.1",
+    "moment": "^2.30.1",
+    "tailwindcss": "^4.1.13"
+  }
+}

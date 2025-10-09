@@ -7,17 +7,24 @@
     <title>Wazwez.</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/custom.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
-    <script src="assets/scripts/app.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </head>
   <body class="md:bg-[var(--bg-color)]">
     <header>
-      <section id="navbar" class="fixed w-full top-0 z-2 bg-white md:bg-[var(--bg-color)]">
+      <section
+        id="navbar"
+        class="fixed w-full top-0 z-2 bg-white md:bg-[var(--bg-color)]"
+      >
         <!-- navbar -->
-        <nav class="flex px-10 py-10 md:px-15 md:py-10 justify-between items-center">
+        <nav
+          class="flex px-10 py-10 md:px-15 md:py-10 justify-between items-center"
+        >
           <!-- logo -->
-          <img src="./assets/icon/icon-logo.svg" alt="Logo Wazwez" class="w-30 md:w-auto cursor-pointer" />
+          <img
+            src="/assets/icon/icon-logo.svg"
+            alt="Logo Wazwez"
+            class="w-30 md:w-auto cursor-pointer"
+          />
           <!-- right nav -->
           <div class="hidden md:flex items-center gap-7">
             <!-- icon notif -->
@@ -25,14 +32,20 @@
             <!-- profile -->
             <div class="flex gap-5 items-center">
               <!-- photo profile -->
-              <div class="w-10 h-10 rounded-full border border-[var(--icon-second-color)] justify-items-center content-center cursor-pointer">
-                <div class="photo-profile w-8 h-8 rounded-full bg-[url('./assets/img/photo-profile.jpeg')] bg-center bg-cover bg-no-repeat"></div>
+              <div
+                class="w-10 h-10 rounded-full border border-[var(--icon-second-color)] justify-items-center content-center cursor-pointer"
+              >
+                <div
+                  class="photo-profile w-8 h-8 rounded-full bg-[url('/assets/img/photo-profile.jpeg')] bg-center bg-cover bg-no-repeat"
+                ></div>
               </div>
               <!-- profile name -->
               <div class="cursor-pointer">Krozeo Jupyter</div>
               <!-- dropdown profile -->
               <button id="btn-dropdown-profile">
-                <i class="custom-icon icon-dropdown w-7 h-7 transition duration-500 ease-out bg-[var(--primary)]"></i>
+                <i
+                  class="custom-icon icon-dropdown w-7 h-7 transition duration-500 ease-out bg-[var(--primary)]"
+                ></i>
               </button>
             </div>
           </div>
@@ -42,62 +55,118 @@
           </button>
         </nav>
         <!-- item hamburger menu mobile -->
-        <div id="nav-mobile" class="hidden flex flex-col w-full fixed items-center z-2 bg-white gap-7 py-5 text-base md:hidden">
-          <a href="#" class="text-[var(--text-color)]decoration-none duration-400 hover:text-[var(--primary)] hover:scale-110 transition duration-500">Notification</a>
-          <a href="#" class="text-[var(--text-color)]decoration-none duration-400 hover:text-[var(--primary)] hover:scale-110 transition duration-500">Profile</a>
+        <div
+          id="nav-mobile"
+          class="hidden flex flex-col w-full fixed items-center z-2 bg-white gap-7 py-5 text-base md:hidden"
+        >
+          <a
+            href="#"
+            class="text-[var(--text-color)]decoration-none duration-400 hover:text-[var(--primary)] hover:scale-110 transition"
+            >Notification</a
+          >
+          <a
+            href="#"
+            class="text-[var(--text-color)]decoration-none duration-400 hover:text-[var(--primary)] hover:scale-110 transition"
+            >Profile</a
+          >
         </div>
       </section>
     </header>
 
     <main class="mt-38 justify-items-center content-center">
-      <section id="content-container" class="min-w-[360px] min-h-[600px] md:min-w-[800px] md:min-h-[672px] p-[2.5rem] overflow-hidden mb-[40px] shadow-xl rounded-[10px] flex flex-col justify-between bg-white">
+      <section
+        id="content-container"
+        class="min-w-[360px] min-h-[600px] md:min-w-[800px] md:min-h-[672px] p-[2.5rem] overflow-hidden mb-[40px] shadow-xl rounded-[10px] flex flex-col justify-between bg-white"
+      >
         <div class="flex flex-col gap-[16px] mb-[28px]">
           <!-- content header -->
           <header class="flex justify-between items-center">
             <div class="text-header">
-              <div class="text-[1rem] font-[500] text-[var(--primary)]">MY TASKS</div>
-              <div class="text-[1.5rem] font-[500] text-[var(--text-color)]">To Do List</div>
-              <div class="text-[1rem] font-[400] text-[var(--text-secondary)]">Buat list tugas harian saya</div>
+              <div class="text-[1rem] font-[500] text-[var(--primary)]">
+                MY TASKS
+              </div>
+              <div class="text-[1.5rem] font-[500] text-[var(--text-color)]">
+                To Do List
+              </div>
+              <div class="text-[1rem] font-[400] text-[var(--text-secondary)]">
+                Buat list tugas harian saya
+              </div>
             </div>
-            <button id="btn-add-task" class="flex items-center gap-[8px] rounded-[60px] px-[0.9375rem] py-[0.75rem] bg-[var(--primary)] text-[1rem] font-[600] text-white border-none cursor-pointer">
-              <i class="custom-icon icon-add w-5 h-5"></i><span class="hidden md:inline-block">Tambah tugas</span>
+            <button
+              id="btn-add-task"
+              class="flex items-center gap-[8px] rounded-[60px] px-[0.9375rem] py-[0.75rem] bg-[var(--primary)] text-[1rem] font-[600] text-white border-none cursor-pointer"
+            >
+              <i class="custom-icon icon-add w-5 h-5"></i
+              ><span class="hidden md:inline-block">Tambah tugas</span>
             </button>
           </header>
 
           <!-- content sorting -->
           <div class="flex justify-between items-center">
-            <span class="text-[1rem] font-[500] text-[var(--text-secondary)]">Sort By</span>
+            <span class="text-[1rem] font-[500] text-[var(--text-secondary)]"
+              >Sort By</span
+            >
             <div class="relative">
               <button
                 id="btn-sorting-task"
                 class="flex items-center px-[0.875rem] py-[0.625rem] text-[var(--primary)] bg-white border border-[var(--primary)] rounded-[50px] font-[600] text-[0.875rem] cursor-pointer transition duration-300 ease-out"
               >
                 By Tanggal
-                <i class="custom-icon icon-dropdown w-5 h-5 transition duration-300 ease-out bg-[var(--primary)]"></i>
+                <i
+                  class="custom-icon icon-dropdown w-5 h-5 transition duration-300 ease-out bg-[var(--primary)]"
+                ></i>
               </button>
-              <div id="option-sort" class="hidden absolute z-1 flex flex-col gap-[12px] border border-[var(--icon-second-color)] rounded-[8px] p-[1.5rem] font-[400] text-[1rem] text-black bg-white top-[50px] w-[200px] right-0">
+              <div
+                id="option-sort"
+                class="hidden absolute z-1 flex flex-col gap-[12px] border border-[var(--icon-second-color)] rounded-[8px] p-[1.5rem] font-[400] text-[1rem] text-black bg-white top-[50px] w-[200px] right-0"
+              >
                 <label class="flex justify-between">
                   <span>By Tanggal</span>
-                  <input type="radio" name="sort-type" value="by-date" class="accent-[var(--primary)]" />
+                  <input
+                    type="radio"
+                    name="sort-type"
+                    value="by-date"
+                    class="accent-[var(--primary)]"
+                  />
                 </label>
                 <label class="flex justify-between">
                   <span>By Time</span>
-                  <input type="radio" name="sort-type" value="by-time" class="accent-[var(--primary)]" />
+                  <input
+                    type="radio"
+                    name="sort-type"
+                    value="by-time"
+                    class="accent-[var(--primary)]"
+                  />
                 </label>
                 <label class="flex justify-between">
                   <span>Terbaru</span>
-                  <input type="radio" name="sort-type" value="newest" class="accent-[var(--primary)]" />
+                  <input
+                    type="radio"
+                    name="sort-type"
+                    value="newest"
+                    class="accent-[var(--primary)]"
+                  />
                 </label>
               </div>
             </div>
           </div>
 
           <!-- add task -->
-          <div id="form-add-container" class="hidden flex gap-[14px] w-[calc(100%+5rem)] ml-[-2.5rem] px-[2.5rem] py-[0.5rem] bg-[var(--bg-color)]">
+          <div
+            id="form-add-container"
+            class="hidden flex gap-[14px] w-[calc(100%+5rem)] ml-[-2.5rem] px-[2.5rem] py-[0.5rem] bg-[var(--bg-color)]"
+          >
             <!-- icon checkbox -->
-            <div class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"></div>
+            <div
+              class="w-[28px] h-[28px] rounded-[100px] border border-[var(--icon-second-color)]"
+            ></div>
             <!-- form input -->
-            <form id="form-add-task" action="" method="get" class="flex gap-[12px] flex-col">
+            <form
+              id="form-add-task"
+              action=""
+              method="get"
+              class="flex gap-[12px] flex-col"
+            >
               <!-- input name -->
               <div class="input-name">
                 <input
@@ -123,7 +192,13 @@
               <!-- input date -->
               <div class="input-date flex items-center gap-[8px]">
                 <i class="custom-icon icon-calender w-5 h-5"></i>
-                <input type="text" placeholder="Tanggal & Waktu" class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)]" name="dateTask" required />
+                <input
+                  type="text"
+                  placeholder="Tanggal & Waktu"
+                  class="border-none bg-[var(--bg-color)] placeholder:text-[#9e9e9e] focus:outline-none font-[400] text-[1rem] text-[var(--text-color)]"
+                  name="dateTask"
+                  required
+                />
               </div>
               <button type="submit" class="hidden"></button>
             </form>
@@ -135,11 +210,21 @@
 
         <!-- completed task -->
         <footer>
-          <section id="completed-task-container" class="flex flex-col gap-[24px]">
+          <section
+            id="completed-task-container"
+            class="flex flex-col gap-[24px]"
+          >
             <hr class="shrink-0 w-full" />
-            <button id="btn-completed-task" class="flex items-center gap-[8px] cursor-pointer">
-              <i class="custom-icon icon-dropdown w-7 h-7 transform -rotate-90 transition duration-300 ease-in-out bg-[var(--primary)]"></i>
-              <span class="font-[500] text-[1.125rem] text-[#7a7f83]">Terselesaikan (<span id="count-completed"></span> Tugas)</span>
+            <button
+              id="btn-completed-task"
+              class="flex items-center gap-[8px] cursor-pointer"
+            >
+              <i
+                class="custom-icon icon-dropdown w-7 h-7 transform -rotate-90 transition duration-300 ease-in-out bg-[var(--primary)]"
+              ></i>
+              <span class="font-[500] text-[1.125rem] text-[#7a7f83]"
+                >Terselesaikan (<span id="count-completed"></span> Tugas)</span
+              >
             </button>
             <div id="completed-task" class="hidden flex flex-col gap-[16px]">
               <!-- item completed task -->
